@@ -1,4 +1,9 @@
 package cuentas;
+
+/**
+ * @author Ana Mª Ramírez
+ *
+ */
 public class CCuenta {
 
 
@@ -7,10 +12,21 @@ public class CCuenta {
     private double saldo;
     private double tipoInteres;
 
+    /**
+     * Método constructor sin parámetros
+     */
     public CCuenta()
     {
     }
 
+    /**
+     * Método constructor que inicializa los parametros de clase CCuenta 
+     * 
+     * @param nom nombre usuario, parámetro de tipo String
+     * @param cue código de la cuenta, parámetro de tipo String
+     * @param sal saldo, parámetro de tipo double 
+     * @param tipo tipo de interés, parámetro de tipo double
+     */
     public CCuenta(String nom, String cue, double sal, double tipo)
     {
         setNombre(nom);
@@ -18,11 +34,22 @@ public class CCuenta {
         setSaldo(sal);
     }
 
+    /**
+     * Método que retorna la cantidad de saldo que tiene una cuenta
+     * 
+     * @return saldo actual
+     */
     public double estado()
     {
         return getSaldo();
     }
 
+    /**
+     * Método encargado de ingresar saldo en la cuenta
+     * 
+     * @param cantidad cantidad de saldo a ingresar, es de tipo double
+     * @throws Exception salta si se intenta ingresar una cantidad de saldo negativa
+     */
     public void ingresar(double cantidad) throws Exception
     {
         if (cantidad<0)
@@ -30,6 +57,13 @@ public class CCuenta {
         setSaldo(getSaldo() + cantidad);
     }
 
+    /**
+     * Método encargado de retirar saldo de la cuenta
+     * 
+     * @param cantidad cantidad de saldo a retirar, es de tipo double
+     * @throws Exception salta si se intenta retirar una cantidad de saldo menor
+     *  o igual a cero, o si la cantidad a retirar es mayor que el saldo de la cuenta
+     */
     public void retirar(double cantidad) throws Exception
     {
         if (cantidad <= 0)
@@ -39,35 +73,67 @@ public class CCuenta {
         setSaldo(getSaldo() - cantidad);
     }
 
-	private String getNombre() {
+	/**
+	 * Método que retorna un nombre
+	 * @return nombre del usuario
+	 */
+	public String getNombre() {
 		return nombre;
 	}
 
-	private void setNombre(String nombre) {
+	/**
+	 * Método que establece el nombre del usuario
+	 * @param nombre nombre de usuario, parámetro de tipo String
+	 */
+	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
 
-	private String getCuenta() {
+	/**
+	 * Método que retorna un número de cuenta
+	 * @return cuenta del usuario
+	 */
+	public String getCuenta() {
 		return cuenta;
 	}
 
-	private void setCuenta(String cuenta) {
+	/**
+	 * Método que establece el número de cuenta
+	 * @param cuenta cuenta de usuario, de tipo String
+	 */
+	public void setCuenta(String cuenta) {
 		this.cuenta = cuenta;
 	}
 
-	private double getSaldo() {
+	/**
+	 * Método que retorna la cantidad de saldo de una cuenta
+	 * @return saldo de la cuenta
+	 */
+	public double getSaldo() {
 		return saldo;
 	}
 
-	private void setSaldo(double saldo) {
+	/**
+	 * Método que establece el saldo de la cuenta
+	 * @param saldo saldo de la cuenta, de tipo double
+	 */
+	public void setSaldo(double saldo) {
 		this.saldo = saldo;
 	}
 
-	private double getTipoInteres() {
+	/**
+	 * Método que retorna el tipo de interés de una cuenta
+	 * @return tipoInteres de la cuenta
+	 */
+	public double getTipoInteres() {
 		return tipoInteres;
 	}
 
-	private void setTipoInteres(double tipoInteres) {
+	/**
+	 * Método que establece el tipo de interés de la cuenta
+	 * @param tipoInteres tipo de interés de la cuenta, de tipo double
+	 */
+	public void setTipoInteres(double tipoInteres) {
 		this.tipoInteres = tipoInteres;
 	}
 }
